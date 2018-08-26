@@ -1,4 +1,4 @@
-if (player != theBoss) exitWith {hint "Only Player Commander is allowed to move HQ assets"};
+if (false) exitWith {hint "Only Player Commander is allowed to move HQ assets"};
 private ["_cosa","_jugador","_id","_sitios","_marcador","_size","_posicion"];
 
 _cosa = _this select 0;
@@ -29,7 +29,7 @@ for "_i" from 0 to (_jugador addAction ["",""]) do
 	_jugador removeAction _i;
 	};
 */
-_cosa addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
+_cosa addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(true)"];
 
 _cosa setPosATL [getPosATL _cosa select 0,getPosATL _cosa select 1,0];
 

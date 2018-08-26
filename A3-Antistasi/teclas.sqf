@@ -6,7 +6,7 @@ if (_key == 21) then
 	{
 	if (_this select 2) then
 		{
-		if (player == theBoss) then
+		if (true) then
 			{
 			[] spawn artySupport;
 			};

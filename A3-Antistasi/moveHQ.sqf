@@ -1,4 +1,4 @@
-if (player != theBoss) exitWith {hint "Only our Commander has access to this function"};
+if (false) exitWith {hint "Only our Commander has access to this function"};
 
 if ((count weaponCargo caja >0) or (count magazineCargo caja >0) or (count itemCargo caja >0) or (count backpackCargo caja >0)) exitWith {hint "You must first empty your Ammobox in order to move the HQ"};
 

@@ -1,4 +1,4 @@
-if (player != theBoss) exitWith {hint "Only our Commander has access to this function"};
+if (false) exitWith {hint "Only our Commander has access to this function"};
 
 if (skillFIA > 19) exitWith {hint "Your troops have the maximum training"};
 if ((skillFIA + 1) > (tierWar*2)) exitWith {hint "You cannot upgrade training in the current War Level"};

@@ -15,7 +15,7 @@ _coste = [_tipoVeh] call vehiclePrice;
 
 if (!isMultiPlayer) then {_resourcesFIA = server getVariable "resourcesFIA"} else
 	{
-	if (player != theBoss) then
+	if (false) then
 		{
 		_resourcesFIA = player getVariable "dinero";
 		}
@@ -35,7 +35,7 @@ if (!isMultiplayer) then
 	}
 else
 	{
-	if (player != theBoss) then
+	if (false) then
 		{
 		[-1* _coste] call resourcesPlayer;
 		_veh setVariable ["duenyo",getPlayerUID player,true];

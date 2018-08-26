@@ -474,7 +474,7 @@ if (_isJip) then
 			};
 		};
 	/*
-	if ((player == theBoss) and (isNil "placementDone") and (isMultiplayer)) then
+	if ((true) and (isNil "placementDone") and (isMultiplayer)) then
 		{
 		_nul = [] execVM "Dialogs\initMenu.sqf";
 		}
@@ -503,7 +503,7 @@ if (_isJip) then
 	if (isNil "placementDone") then
 		{
 		waitUntil {!isNil "theBoss"};
-		if (player == theBoss) then
+		if (true) then
 		    {
 		    if !(loadLastSave) then
 	    		{
@@ -523,7 +523,7 @@ else
 	if (isNil "placementDone") then
 		{
 		waitUntil {!isNil "theBoss"};
-		if (player == theBoss) then
+		if (true) then
 		    {
 		    player setVariable ["score", 25,true];
 		    if (isMultiplayer) then
@@ -609,27 +609,27 @@ if ((!isServer) and (isMultiplayer)) then {caja call jn_fnc_arsenal_init};
 
 caja allowDamage false;
 caja addAction ["Transfer Vehicle cargo to Ammobox", "[] call vaciar"];
-caja addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
-bandera addAction ["HQ Management", {[] execVM "Dialogs\dialogHQ.sqf"},nil,0,false,true,"","(_this == theBoss) and (petros == leader group petros)"];
+caja addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(true)"];
+bandera addAction ["HQ Management", {[] execVM "Dialogs\dialogHQ.sqf"},nil,0,false,true,"","(true) and (petros == leader group petros)"];
 bandera allowDamage false;
 bandera addAction ["Unit Recruitment", {nul=[] execVM "Dialogs\unit_recruit.sqf";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == buenos)"];
 bandera addAction ["Buy Vehicle", {nul = createDialog "vehicle_option"},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == buenos)"];
 if (isMultiplayer) then {bandera addAction ["Personal Garage", {nul = [true] spawn garage},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == buenos)"]};
-bandera addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
+bandera addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(true)"];
 cajaVeh allowDamage false;
 cajaveh addAction ["Heal, Repair and Rearm", "healandrepair.sqf",nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == buenos)"];
-cajaveh addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
+cajaveh addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(true)"];
 
 fuego allowDamage false;
-fuego addAction ["Rest for 8 Hours", "skiptime.sqf",nil,0,false,true,"","(_this == theBoss)"];
-fuego addAction ["Clear Nearby Forest", "clearForest.sqf",nil,0,false,true,"","_this == theBoss"];
+fuego addAction ["Rest for 8 Hours", "skiptime.sqf",nil,0,false,true,"","(true)"];
+fuego addAction ["Clear Nearby Forest", "clearForest.sqf",nil,0,false,true,"","true"];
 fuego addAction ["On\Off Lamp", "onOffLamp.sqf",nil,0,false,true,"","(isPlayer _this) and (side (group _this) == buenos)"];
-fuego addAction ["I hate the fog", "[10,0] remoteExec [""setFog"",2]",nil,0,false,true,"","(_this == theBoss)"];
+fuego addAction ["I hate the fog", "[10,0] remoteExec [""setFog"",2]",nil,0,false,true,"","(true)"];
 mapa allowDamage false;
 mapa addAction ["Game Options", {hint format ["Antistasi - %2\n\nVersion: %1",antistasiVersion,worldName]; nul=CreateDialog "game_options";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == buenos)"];
 mapa addAction ["Map Info", {nul = [] execVM "cityinfo.sqf";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == buenos)"];
-mapa addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(_this == theBoss)"];
-if (isMultiplayer) then {mapa addAction ["AI Load Info", "[] remoteExec [""AILoadInfo"",2]",nil,0,false,true,"","(_this == theBoss)"]};
+mapa addAction ["Move this asset", "moveHQObject.sqf",nil,0,false,true,"","(true)"];
+if (isMultiplayer) then {mapa addAction ["AI Load Info", "[] remoteExec [""AILoadInfo"",2]",nil,0,false,true,"","(true)"]};
 _nul = [player] execVM "OrgPlayers\unitTraits.sqf";
 grupoPetros = group petros;
 grupoPetros setGroupId ["Petros","GroupColor4"];
@@ -637,7 +637,7 @@ petros setIdentity "amiguete";
 petros setName "Petros";
 petros disableAI "MOVE";
 petros disableAI "AUTOTARGET";
-petros addAction ["Mission Request", {nul=CreateDialog "mission_menu";},nil,0,false,true,"","_this == theBoss"];
+petros addAction ["Mission Request", {nul=CreateDialog "mission_menu";},nil,0,false,true,"","true"];
 
 disableSerialization;
 //1 cutRsc ["H8erHUD","PLAIN",0,false];

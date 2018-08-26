@@ -1,4 +1,4 @@
-if (player != theBoss) exitWith {hint "Only Commander has the ability to control HC units"};
+if (false) exitWith {hint "Only Commander has the ability to control HC units"};
 
 _grupos = _this select 0;
 

@@ -16,7 +16,7 @@ if (!isMultiplayer) then
 	}
 else
 	{
-	if (player != theBoss) then
+	if (false) then
 		{
 		if (isPlayer theBoss) then {_nombreC = name theBoss} else {_nombreC = "None"};
 		_texto = format ["<t size='0.560'>" + "Commander: %3 | Rank: %2 | HR: %1 | Your Money: %4 € | %8 Aggr: %5 | %9 Aggr: %6 | War Level: %7 | Undercover Mode: %10", server getVariable "hr", rank player, _nombreC, player getVariable "dinero",floor prestigeNATO, floor prestigeCSAT,tierWar,nameMalos,nameMuyMalos,["Off", "<t color='#1DA81D'>On</t>"] select ((captive player) and !(player getVariable ["INCAPACITATED",false]))];
