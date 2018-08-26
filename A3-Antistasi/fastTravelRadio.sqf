@@ -68,7 +68,8 @@ if (count _posicionTel > 0) then
 
 	if (_chequeo) exitWith {Hint "You cannot Fast Travel to an area under attack or with enemies in the surrounding"; openMap [false,false]};
 
-	if (_posicionTel distance getMarkerPos _base < 50) then
+    _areaRadius = 300;
+    if (_posicionTel distance getMarkerPos _base < _areaRadius) then
 		{
 		_posicion = [getMarkerPos _base, 10, random 360] call BIS_Fnc_relPos;
 		_distancia = round (((position _jefe) distance _posicion)/200);
@@ -94,12 +95,12 @@ if (count _posicionTel > 0) then
 						_tam = _tam + 10;
 						};
 					_road = _roads select 0;
-					_pos = position _road findEmptyPosition [1,50,typeOf (vehicle _unit)];
+					_pos = position _road findEmptyPosition [1,_areaRadius,typeOf (vehicle _unit)];
 					vehicle _unit setPos _pos;
 					};
 				if ((vehicle _unit isKindOf "StaticWeapon") and (!isPlayer (leader _unit))) then
 					{
-					_pos = _posicion findEmptyPosition [1,50,typeOf (vehicle _unit)];
+					_pos = _posicion findEmptyPosition [1,_areaRadius,typeOf (vehicle _unit)];
 					vehicle _unit setPosATL _pos;
 					};
 				}
@@ -107,7 +108,7 @@ if (count _posicionTel > 0) then
 				{
 				if (!(_unit getVariable ["INCAPACITATED",false])) then
 					{
-					_posicion = _posicion findEmptyPosition [1,50,typeOf _unit];
+					_posicion = _posicion findEmptyPosition [1,_areaRadius,typeOf _unit];
 					_unit setPosATL _posicion;
 					if (isPlayer leader _unit) then {_unit setVariable ["rearming",false]};
 					_unit doWatch objNull;
@@ -115,7 +116,7 @@ if (count _posicionTel > 0) then
 					}
 				else
 					{
-					_posicion = _posicion findEmptyPosition [1,50,typeOf _unit];
+					_posicion = _posicion findEmptyPosition [1,_areaRadius,typeOf _unit];
 					_unit setPosATL _posicion;
 					};
 				};
