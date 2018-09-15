@@ -19,7 +19,7 @@ if (_veh isKindOf "Man") exitWith {hint "Are you kidding?"};
 
 if (not(_veh isKindOf "AllVehicles")) exitWith {hint "The vehicle you are looking cannot be stored in our Garage"};
 
-if (_pool and (count vehInGarage >= (tierWar *3))) exitWith {hint "You cannot garage more vehicles at your current War Level"};
+if (_pool and (count vehInGarage >= (tierWar * 10))) exitWith {hint "You cannot garage more vehicles at your current War Level"};
 
 _exit = false;
 if (!_pool) then
